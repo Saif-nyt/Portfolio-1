@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { Fireflies } from "@/components/fx/Fireflies";
 import { SKILL_GROUPS } from "@/data/skills";
 
 export function SkillsExplorer() {
@@ -61,12 +62,13 @@ export function SkillsExplorer() {
                     isActive
                       ? "border-glow/55 bg-surface-raised shadow-[0_0_0_1px_var(--glow-soft),0_24px_50px_-34px_rgba(0,0,0,0.6)]"
                       : "border-line bg-surface-raised/60 hover:border-line-strong"
-                  }`}
-                >
-                  <span className="flex items-center justify-between">
-                    <span className="text-[0.65rem] uppercase tracking-[0.26em] text-muted">
-                      {group.label}
-                    </span>
+                }`}
+              >
+                <Fireflies count={isActive ? 3 : 1} />
+                <span className="relative flex items-center justify-between">
+                  <span className="text-[0.65rem] uppercase tracking-[0.26em] text-muted">
+                    {group.label}
+                  </span>
                     <span
                       aria-hidden="true"
                       className={`h-2 w-2 rounded-full transition-all duration-400 ${
@@ -76,10 +78,10 @@ export function SkillsExplorer() {
                       }`}
                     />
                   </span>
-                  <span className="mt-3 block font-display text-xl font-medium tracking-tight text-ink">
+                  <span className="relative mt-3 block font-display text-xl font-medium tracking-tight text-ink">
                     {group.title}
                   </span>
-                  <span className="mt-2 block text-[0.82rem] leading-relaxed text-muted">
+                  <span className="relative mt-2 block text-[0.82rem] leading-relaxed text-muted">
                     {group.summary}
                   </span>
                   <span
@@ -97,6 +99,7 @@ export function SkillsExplorer() {
           {/* Detail panel */}
           <div className="lg:col-span-7">
             <div className="surface-panel relative h-full overflow-hidden p-6 sm:p-8">
+              <Fireflies count={3} />
               <div
                 aria-hidden="true"
                 className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-glow/12 blur-3xl"

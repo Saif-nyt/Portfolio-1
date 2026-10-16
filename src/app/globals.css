@@ -311,7 +311,7 @@
     z-index: 0;
     overflow: hidden;
     border-radius: inherit;
-    opacity: 0;
+    opacity: 0.5;
     transition: opacity 800ms ease;
     pointer-events: none;
   }
@@ -332,12 +332,7 @@
     );
     box-shadow: 0 0 10px rgba(101, 232, 224, 0.4);
     animation: firefly-drift var(--ff-dur, 8s) ease-in-out infinite alternate;
-    animation-play-state: paused;
     will-change: transform, opacity;
-  }
-  .group:hover .fireflies i,
-  .group:focus-within .fireflies i {
-    animation-play-state: running;
   }
 }
 

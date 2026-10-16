@@ -5,6 +5,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { Fireflies } from "@/components/fx/Fireflies";
 import { SITE } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -83,7 +84,8 @@ export default function ContactPage() {
 
             <div className="lg:col-span-5">
               <Reveal delay={0.08} className="flex flex-col gap-6">
-                <div className="rounded-[1.375rem] border border-line bg-surface-2 p-6 sm:p-7">
+                <div className="group relative overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 p-6 sm:p-7">
+                  <Fireflies count={2} />
                   <p className="eyebrow">Direct contact</p>
                   <ul className="mt-5 space-y-4">
                     <li>
@@ -176,7 +178,8 @@ export default function ContactPage() {
                   </ul>
                 </div>
 
-                <div className="rounded-[1.375rem] border border-glow/35 bg-glow/[0.06] p-6 sm:p-7">
+                <div className="group relative overflow-hidden rounded-[1.375rem] border border-glow/35 bg-glow/[0.06] p-6 sm:p-7">
+                  <Fireflies count={3} />
                   <p className="eyebrow">What to include</p>
                   <ul className="mt-5 space-y-3">
                     {INCLUDE.map((item) => (
@@ -200,7 +203,8 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="rounded-[1.375rem] border border-line bg-surface-2 p-6">
+                <div className="group relative overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 p-6">
+                  <Fireflies count={2} />
                   <p className="text-[0.72rem] uppercase tracking-[0.16em] text-muted">
                     Prefer a quick start?
                   </p>
