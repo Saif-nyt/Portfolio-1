@@ -82,6 +82,29 @@ With no provider configured the contact form returns an honest
 successful submission. Delivery is protected by honeypot + per-instance rate
 limiting.
 
+## Public API
+
+The same content the site renders is also served as a read-only JSON backend:
+
+| Endpoint                 | Returns                                                 |
+| ------------------------ | ------------------------------------------------------- |
+| `GET /api`               | Discovery document listing every endpoint               |
+| `GET /api/projects`      | All case studies (summary fields)                       |
+| `GET /api/projects/[slug]` | Full case study, or `404 {"error":"not_found"}`       |
+| `GET /api/articles`      | All articles, newest first                              |
+| `GET /api/articles/[slug]` | Full article with content blocks, or 404              |
+| `GET /api/health`        | Liveness probe, computed per request                    |
+
+Handlers live in `src/app/api/*` and read through the cached accessors in
+`src/lib/api.ts` (`use cache` + `cacheLife("hours")`). Known slugs are
+prerendered at build time; unknown slugs get a real JSON 404. Responses are
+CORS-open and cacheable:
+
+```bash
+curl http://localhost:3000/api/projects
+curl http://localhost:3000/api/projects/ecommerce-storefront-experience
+```
+
 ## Project structure
 
 ```
@@ -90,6 +113,8 @@ src/
                         /insights, /insights/[slug], /contact
                         + sitemap.ts, robots.ts, opengraph-image.tsx,
                           not-found.tsx, error.tsx
+  app/api/              Public JSON API: /api, /api/projects(+[slug]),
+                        /api/articles(+[slug]), /api/health
   components/
     hero/               Cinematic hero: EnvironmentScene, ParticleField (canvas),
                         FloraBackdrop, CinematicHero
@@ -105,7 +130,8 @@ src/
                         before rendering (see Quality checklist)
   data/                 Editable content: navigation, services, skills,
                         projects, articles
-  lib/                  Server action, validation, rate limit, helpers
+  lib/                  Server action, validation, rate limit, API accessors,
+                        helpers
   types/                Content model types
 public/cv/              Real downloadable CV (PDF)
 scripts/generate-cv.mjs CV PDF generator (Node, no dependencies)
