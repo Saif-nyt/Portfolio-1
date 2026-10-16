@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef, type PointerEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { ArtworkImage } from "@/components/projects/ArtworkImage";
+import { Fireflies } from "@/components/fx/Fireflies";
 import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -62,6 +63,8 @@ export function ProjectCard({ project, wide = false, index }: ProjectCardProps) 
             fallbackClassName="h-full w-full [&>svg]:h-full [&>svg]:w-full"
           />
         </div>
+
+        <Fireflies count={4} />
 
         <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/45 px-3 py-1 text-[0.66rem] font-medium uppercase tracking-[0.18em] text-[#DCE9E4] backdrop-blur-sm">
           <span

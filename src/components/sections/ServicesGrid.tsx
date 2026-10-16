@@ -11,6 +11,7 @@ import { SERVICES } from "@/data/services";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { Fireflies } from "@/components/fx/Fireflies";
 import { Button } from "@/components/ui/Button";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -65,6 +66,7 @@ export function ServicesGrid({
                 className="h-full"
               >
                 <article className="shine card-charge group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface-2/70 p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/45 hover:bg-surface-raised sm:p-7">
+                  <Fireflies count={3} />
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-glow/0 blur-3xl transition-all duration-700 group-hover:bg-glow/20"

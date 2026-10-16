@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { LuminousTrail } from "@/components/sections/LuminousTrail";
+import { Fireflies } from "@/components/fx/Fireflies";
 
 const STEPS = [
   {
@@ -62,6 +63,7 @@ export function ProcessTimeline() {
             {STEPS.map((step, index) => (
               <Reveal key={step.number} delay={index * 0.08}>
                 <li className="shine card-charge group relative h-full overflow-hidden rounded-2xl border border-line bg-surface-raised/70 p-5 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/45">
+                  <Fireflies count={2} />
                   <span className="flex items-center gap-3">
                     <span className="font-mono text-[0.7rem] tracking-[0.24em] text-accent dark:text-bio">
                       {step.number}

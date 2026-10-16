@@ -6,6 +6,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactCTA } from "@/components/sections/ContactCTA";
+import { Fireflies } from "@/components/fx/Fireflies";
 import { formatDate } from "@/data/articles";
 import { getArticles } from "@/lib/content";
 
@@ -71,6 +72,7 @@ export default async function InsightsPage() {
                 className="h-full"
               >
                 <li className="shine card-charge group relative flex h-full flex-col overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/40">
+                  <Fireflies count={3} />
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
                     <div className="flex items-center justify-between gap-4 text-[0.7rem] uppercase tracking-[0.16em] text-muted">
                       <span>{article.category}</span>
