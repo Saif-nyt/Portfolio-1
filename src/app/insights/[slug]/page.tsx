@@ -10,25 +10,26 @@ import { ArticleBody } from "@/components/insights/ArticleBody";
 import { TableOfContents } from "@/components/insights/TableOfContents";
 import { ShareLinks } from "@/components/insights/ShareLinks";
 import { ContactCTA } from "@/components/sections/ContactCTA";
+import { formatDate } from "@/data/articles";
 import {
-  ARTICLES,
-  formatDate,
   getArticle,
+  getArticles,
   getRelatedArticles,
-} from "@/data/articles";
+} from "@/lib/content";
 import { SITE, SITE_URL } from "@/config/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return ARTICLES.map((article) => ({ slug: article.slug }));
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   // Keep this a return, not notFound(): a throw here flips the response to 200.
   if (!article) return { title: "Article not found" };
 
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!article) notFound();
 
   const tocItems = article.blocks
@@ -63,7 +64,7 @@ export default async function ArticlePage({ params }: PageProps) {
     )
     .map((block) => ({ id: block.id, text: block.text }));
 
-  const related = getRelatedArticles(slug);
+  const related = await getRelatedArticles(slug);
   const canonicalUrl = `${SITE_URL}/insights/${article.slug}`;
 
   const jsonLd = {

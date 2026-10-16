@@ -1,14 +1,16 @@
-import { cacheLife, cacheTag } from "next/cache";
-import { ARTICLES } from "@/data/articles";
-import { PROJECTS } from "@/data/projects";
+import {
+  getArticle,
+  getArticles,
+  getProject,
+  getProjects,
+} from "@/lib/content";
 import type { Article } from "@/types/article";
 import type { Project } from "@/types/project";
 
 /**
- * Thin data-access layer behind the public JSON API. Reads are cached with
- * `use cache` so the handlers can be prerendered at build time (and revalidated
- * per `cacheLife` at runtime) instead of re-serialising the whole catalogue on
- * every request.
+ * Thin data-access layer behind the public JSON API. Reads go through the
+ * remote-first content layer (`src/lib/content.ts`), which caches with
+ * `use cache` and falls back to the bundled copy when the API is unreachable.
  */
 
 /** Public, cacheable, CORS-open headers for every read-only API response. */
@@ -85,31 +87,21 @@ function toArticleSummary(article: Article): ArticleSummary {
 }
 
 export async function listProjects(): Promise<ProjectSummary[]> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("projects");
-  return PROJECTS.map(toProjectSummary);
+  const projects = await getProjects();
+  return projects.map(toProjectSummary);
 }
 
 export async function readProject(slug: string): Promise<Project | null> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("projects");
-  return PROJECTS.find((project) => project.slug === slug) ?? null;
+  return getProject(slug);
 }
 
 export async function listArticles(): Promise<ArticleSummary[]> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("articles");
-  return [...ARTICLES]
+  const articles = await getArticles();
+  return [...articles]
     .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1))
     .map(toArticleSummary);
 }
 
 export async function readArticle(slug: string): Promise<Article | null> {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("articles");
-  return ARTICLES.find((article) => article.slug === slug) ?? null;
+  return getArticle(slug);
 }

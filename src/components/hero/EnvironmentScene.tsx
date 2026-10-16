@@ -49,8 +49,8 @@ export function EnvironmentScene() {
     const rect = node.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width - 0.5;
     const py = (event.clientY - rect.top) / rect.height - 0.5;
-    node.style.setProperty("--pointer-x", `${px * 18}px`);
-    node.style.setProperty("--pointer-y", `${py * 12}px`);
+    node.style.setProperty("--pointer-x", `${px * 26}px`);
+    node.style.setProperty("--pointer-y", `${py * 16}px`);
   };
 
   const onPointerLeave = () => {

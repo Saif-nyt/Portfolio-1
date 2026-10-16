@@ -1,9 +1,10 @@
-import { ARTICLES } from "@/data/articles";
+import { getArticles } from "@/lib/content";
 import { apiJson, readArticle } from "@/lib/api";
 
 /** Known slugs are prerendered; anything else resolves to a JSON 404. */
-export function generateStaticParams() {
-  return ARTICLES.map((article) => ({ slug: article.slug }));
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function GET(

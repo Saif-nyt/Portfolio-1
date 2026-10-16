@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { FloraBackdrop } from "@/components/hero/FloraBackdrop";
@@ -31,6 +32,22 @@ export function PageHero({
       />
       <div className="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-glow/12 blur-3xl" />
       <FloraBackdrop className="absolute inset-x-0 bottom-0 h-32 opacity-40" />
+
+      {/* Drifting bioluminescent spores — the game world continues on every page */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <span
+          className="bob pulse-bio absolute right-[16%] top-[28%] h-3 w-3 rounded-full bg-[radial-gradient(circle,#D8FFFB_0%,#8FF2EC_40%,transparent_75%)]"
+          style={{ "--bob-delay": "0.3s", "--bob-duration": "6.2s" } as CSSProperties}
+        />
+        <span
+          className="bob pulse-bio absolute right-[8%] top-[52%] h-5 w-5 rounded-full bg-[radial-gradient(circle,#D8FFFB_0%,#65E8E0_35%,transparent_72%)] opacity-70"
+          style={{ "--bob-delay": "1.6s", "--bob-duration": "7.4s" } as CSSProperties}
+        />
+        <span
+          className="bob pulse-bio absolute right-[26%] top-[68%] h-2 w-2 rounded-full bg-[radial-gradient(circle,#D8FFFB_0%,#8FF2EC_45%,transparent_78%)]"
+          style={{ "--bob-delay": "2.5s", "--bob-duration": "5.6s" } as CSSProperties}
+        />
+      </div>
 
       <Container className="relative z-10">
         {breadcrumbs && breadcrumbs.length > 0 ? (

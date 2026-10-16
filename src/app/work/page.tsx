@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
 import { ProjectExplorer } from "@/components/projects/ProjectExplorer";
 import { ContactCTA } from "@/components/sections/ContactCTA";
-import { PROJECTS } from "@/data/projects";
+import { getProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Work — Case Studies & Concept Projects",
@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const projects = await getProjects();
   return (
     <>
       <PageHero
@@ -36,7 +37,7 @@ export default function WorkPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Work" }]}
         meta={
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.78rem] text-muted">
-            <li>{PROJECTS.length} projects</li>
+            <li>{projects.length} projects</li>
             <li aria-hidden="true" className="text-line-strong">
               ·
             </li>
@@ -50,7 +51,7 @@ export default function WorkPage() {
       />
 
       <ProjectExplorer
-        projects={PROJECTS}
+        projects={projects}
         eyebrow="Interactive Projects Explorer"
         title={
           <>

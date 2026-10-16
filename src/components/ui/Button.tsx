@@ -47,7 +47,7 @@ const variantClasses: Record<Variant, string> = {
 };
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-300 ease-out will-change-transform disabled:pointer-events-none disabled:opacity-50";
+  "shine group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-medium tracking-wide transition-all duration-300 ease-out will-change-transform active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50";
 
 function classesFor(variant: Variant, size: Size, className?: string) {
   return `${base} ${sizeClasses[size]} ${variantClasses[variant]} ${className ?? ""}`;

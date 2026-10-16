@@ -5,9 +5,10 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ProjectExplorer } from "@/components/projects/ProjectExplorer";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { ContactCTA } from "@/components/sections/ContactCTA";
-import { PROJECTS } from "@/data/projects";
+import { getProjects } from "@/lib/content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await getProjects();
   return (
     <>
       <CinematicHero />
@@ -31,7 +32,7 @@ export default function HomePage() {
       <ContactCTA variant="inline" />
 
       <ProjectExplorer
-        projects={PROJECTS}
+        projects={projects}
         eyebrow="Selected Work"
         title={
           <>

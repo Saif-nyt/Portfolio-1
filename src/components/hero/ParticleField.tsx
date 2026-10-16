@@ -100,11 +100,24 @@ export function ParticleField({ className = "" }: { className?: string }) {
       context.globalAlpha = 1;
     };
 
+    const REPEL_RADIUS = 110;
+
     const tick = () => {
       for (const p of particles) {
         p.y -= p.speed;
         p.x += p.drift + Math.sin(p.phase) * 0.12;
         p.phase += 0.012;
+        if (pointer) {
+          const dx = p.x - pointer.x;
+          const dy = p.y - pointer.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < REPEL_RADIUS * REPEL_RADIUS && distSq > 0.01) {
+            const dist = Math.sqrt(distSq);
+            const force = (1 - dist / REPEL_RADIUS) * 1.1;
+            p.x += (dx / dist) * force;
+            p.y += (dy / dist) * force;
+          }
+        }
         if (p.y < -6) {
           p.y = height + 6;
           p.x = Math.random() * width;
@@ -134,6 +147,18 @@ export function ParticleField({ className = "" }: { className?: string }) {
     );
     observer.observe(canvas);
 
+    // Cursor repulsion: motes scoot away from the pointer like a game swarm.
+    let pointer: { x: number; y: number } | null = null;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const onPointerMove = (event: PointerEvent) => {
+      if (reduced || coarse) return;
+      const rect = canvas.getBoundingClientRect();
+      pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    };
+    if (!reduced && !coarse) {
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+    }
+
     const onVisibility = () => {
       if (document.hidden) stop();
       else start();
@@ -151,6 +176,7 @@ export function ParticleField({ className = "" }: { className?: string }) {
       observer.disconnect();
       resizeObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pointermove", onPointerMove);
     };
   }, []);
 

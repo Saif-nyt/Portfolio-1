@@ -1,9 +1,10 @@
-import { PROJECTS } from "@/data/projects";
+import { getProjects } from "@/lib/content";
 import { apiJson, readProject } from "@/lib/api";
 
 /** Known slugs are prerendered; anything else resolves to a JSON 404. */
-export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function GET(

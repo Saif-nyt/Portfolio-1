@@ -64,7 +64,7 @@ export function ServicesGrid({
                 delay={Math.min(index * 0.07, 0.35)}
                 className="h-full"
               >
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface-2/70 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-glow/45 hover:bg-surface-raised sm:p-7">
+                <article className="shine card-charge group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-surface-2/70 p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/45 hover:bg-surface-raised sm:p-7">
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-glow/0 blur-3xl transition-all duration-700 group-hover:bg-glow/20"

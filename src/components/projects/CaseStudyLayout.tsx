@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { ProjectArtwork } from "@/components/artwork/ProjectArtwork";
+import { ArtworkImage } from "@/components/projects/ArtworkImage";
 import type { Project } from "@/types/project";
 
 interface CaseStudyLayoutProps {
@@ -19,9 +19,11 @@ export function CaseStudyLayout({ project, nextProject }: CaseStudyLayoutProps) 
         <div className="container-page relative z-10 max-w-[80rem] py-14 sm:py-20">
           <Reveal>
             <div className="overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_40px_90px_-50px_rgba(0,0,0,0.9)]">
-              <ProjectArtwork
-                name={project.artwork}
-                className="[&>svg]:block [&>svg]:h-auto [&>svg]:w-full"
+              <ArtworkImage
+                slug={project.slug}
+                artwork={project.artwork}
+                className="block h-auto w-full"
+                fallbackClassName="[&>svg]:block [&>svg]:h-auto [&>svg]:w-full"
               />
             </div>
           </Reveal>

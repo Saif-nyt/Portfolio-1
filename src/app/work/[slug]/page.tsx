@@ -4,19 +4,24 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/PageHero";
 import { CaseStudyLayout } from "@/components/projects/CaseStudyLayout";
 import { ContactCTA } from "@/components/sections/ContactCTA";
-import { getProject, getRelatedProjects, PROJECTS } from "@/data/projects";
+import {
+  getProject,
+  getProjects,
+  getRelatedProjects,
+} from "@/lib/content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
   // Keep this a return, not notFound(): a throw here flips the response to 200.
   if (!project) return { title: "Project not found" };
 
@@ -35,10 +40,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
   if (!project) notFound();
 
-  const nextProject = getRelatedProjects(slug, 1)[0];
+  const nextProject = (await getRelatedProjects(slug, 1))[0];
 
   return (
     <>

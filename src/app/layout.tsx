@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/contact/WhatsAppWidget";
+import { GameFX } from "@/components/fx/GameFX";
 import { SITE, SITE_URL } from "@/config/site";
 
 const spaceGrotesk = Space_Grotesk({
@@ -136,6 +137,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <WhatsAppWidget />
+        <GameFX />
       </body>
     </html>
   );

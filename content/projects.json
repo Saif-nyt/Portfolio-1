@@ -1,0 +1,622 @@
+[
+  {
+    "slug": "ecommerce-storefront-experience",
+    "title": "E-commerce Storefront Experience",
+    "kicker": "Concept Project",
+    "category": "WordPress",
+    "secondaryCategory": "E-commerce / WordPress",
+    "summary": "A premium skincare storefront concept with a warm neutral palette, strong product hierarchy, mobile-first layouts, and a streamlined purchasing journey.",
+    "artwork": "skincare-storefront",
+    "technologies": [
+      "WordPress",
+      "WooCommerce",
+      "Elementor",
+      "Performance tuning"
+    ],
+    "isDemo": true,
+    "featured": true,
+    "year": "2026",
+    "role": "Design and front-end build — concept work, no client engagement.",
+    "audience": "Shoppers comparing skincare routines on a phone, deciding between three or four products in a single session.",
+    "problem": "Skincare stores often bury the product story under decoration. The concept set out to test whether a calmer hierarchy — one promise, one hero product family, one consistent purchase action — would make the range easier to buy from.",
+    "showcase": [
+      {
+        "title": "Homepage",
+        "description": "Single promise above the fold, one hero family, and a direct route into the catalogue."
+      },
+      {
+        "title": "Product listing",
+        "description": "Four-up desktop grid collapsing to two-up on mobile, with filters kept off the primary reading path."
+      },
+      {
+        "title": "Product detail page",
+        "description": "Benefit-first copy order, size and routine context, then the purchase action repeated at the end."
+      },
+      {
+        "title": "Mobile storefront",
+        "description": "Thumb-reachable actions, sticky purchase bar, and no hover-only information."
+      },
+      {
+        "title": "Conversion layout decisions",
+        "description": "Consistent CTA placement, fewer competing buttons, and trust content placed next to the decision point."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "A demonstration storefront exploring how a luxury editorial layout can be applied to a practical e-commerce journey without losing clarity.",
+          "The concept covers the homepage, catalogue, product page, and mobile experience as one connected system."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Reduce the number of decisions a shopper has to make before reaching a product that suits them, and keep the purchase action obvious on every screen size."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Mobile-first shoppers who scan quickly, compare benefits rather than specifications, and abandon layouts that feel crowded."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Information architecture, visual system, component build, responsive implementation, and speed review — completed independently as concept work."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "WordPress with WooCommerce, Elementor for editable sections, CSS-level performance passes, and a token-based design system for spacing and colour."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "Warm neutrals carry the interface while product photography holds the visual weight, so the store stays calm even with large imagery.",
+          "The grid collapses in two stages rather than three, keeping tap targets above 44px at every breakpoint.",
+          "Above-the-fold JavaScript was limited to navigation; the rest of the page loads as static content."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "A complete responsive storefront layout: homepage, listing, product detail, cart entry, and mobile states, documented as a reusable component set."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Product hierarchy does more for conversion than decorative detail — the moment the second competing button was removed, the page became noticeably easier to read.",
+          "Editorial typography works in commerce only when the price and purchase action remain the loudest elements after the headline."
+        ]
+      }
+    ],
+    "deliverable": "Responsive WordPress/WooCommerce layout set with a documented component system and performance notes.",
+    "results": null,
+    "lessons": [
+      "One purchase action per viewport beats several competing ones.",
+      "Warm neutral palettes need a single dark accent to keep hierarchy readable.",
+      "Mobile layouts should be designed first, then expanded — not compressed afterwards."
+    ],
+    "links": {}
+  },
+  {
+    "slug": "modern-shopify-product-store",
+    "title": "Modern Shopify Product Store",
+    "kicker": "Concept Project",
+    "category": "Shopify",
+    "secondaryCategory": "Shopify / E-commerce",
+    "summary": "A clean, modern Shopify store concept featuring premium product presentation, clear product benefits, and a simplified shopping experience.",
+    "artwork": "shopify-store",
+    "technologies": [
+      "Shopify",
+      "Liquid theme sections",
+      "Responsive layout",
+      "Storefront speed"
+    ],
+    "isDemo": true,
+    "featured": true,
+    "year": "2026",
+    "role": "Concept design and theme implementation — no client engagement.",
+    "audience": "First-time visitors arriving from social or search who need to understand the product in seconds.",
+    "problem": "Product pages carry too much generic content. The concept tests a benefits-first structure with a restrained variant and purchase block.",
+    "showcase": [
+      {
+        "title": "Homepage",
+        "description": "Category-led entry with one featured collection and a clear seasonal focus."
+      },
+      {
+        "title": "Product detail page",
+        "description": "Gallery, benefit list, variant swatches, price, and a single purchase action above the fold."
+      },
+      {
+        "title": "Collection layout",
+        "description": "Four-up grid with quick-scan pricing and no dense filter panel on mobile."
+      },
+      {
+        "title": "Mobile experience",
+        "description": "Full-width purchase action, collapsible details, and readable typography at 375px."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "A Shopify storefront concept designed to make product discovery and purchasing feel straightforward across devices.",
+          "Sections were built so a store owner could edit copy and imagery without touching layout code."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Help a shopper answer three questions quickly: what it is, why it matters, and how to buy it."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Mobile visitors from paid social, comparing a small number of products with limited patience for scrolling."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Store structure, theme section design, responsive implementation, and collection/product templates."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "Shopify theme sections and Liquid templates, responsive CSS, image sizing passes for storefront speed."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "Variant selection uses colour swatches with text labels, so state is never communicated through colour alone.",
+          "The purchase action repeats after the details block for long pages, without ever appearing twice in one viewport.",
+          "Collection cards keep price and title at fixed positions so the grid stays scannable while images vary."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "Homepage, collection, product detail and cart templates with a documented section library for future merchandising."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Shopify's section model rewards consistency: fixed content slots kept the design intact when copy length changed."
+        ]
+      }
+    ],
+    "deliverable": "Shopify section library plus homepage, collection and product templates with mobile states.",
+    "results": null,
+    "lessons": [
+      "Fixed content slots protect a design when merchandising copy changes weekly.",
+      "Benefit bullets before specifications suit cold traffic far better than technical tables."
+    ],
+    "links": {}
+  },
+  {
+    "slug": "meta-ads-conversion-tracking-system",
+    "title": "Meta Ads & Conversion Tracking System",
+    "kicker": "Demo Project",
+    "category": "Tracking & Analytics",
+    "secondaryCategory": "Marketing / Tracking",
+    "summary": "A demonstration of how an e-commerce brand could connect advertising campaigns, website events, Meta Pixel, and Facebook Conversion API.",
+    "artwork": "tracking-system",
+    "technologies": [
+      "Meta Pixel",
+      "Facebook Conversion API",
+      "Server-side tracking",
+      "GA4",
+      "Event debugging"
+    ],
+    "isDemo": true,
+    "featured": true,
+    "year": "2026",
+    "role": "Measurement architecture design and event implementation — demonstration only.",
+    "audience": "Marketing teams who can see spend in Ads Manager but cannot confirm whether on-site events are complete or duplicated.",
+    "problem": "Browser-only tracking loses events to blockers and privacy controls, and mismatched event IDs can double-count conversions.",
+    "showcase": [
+      {
+        "title": "Event tracking architecture",
+        "description": "Which events fire, where they originate, and what data each one carries."
+      },
+      {
+        "title": "Browser and server event flow",
+        "description": "Pixel events and Conversion API events sent in parallel with a shared event_id."
+      },
+      {
+        "title": "Deduplication concept",
+        "description": "How matching event_id and event_name values collapse two records into one."
+      },
+      {
+        "title": "Event testing checklist",
+        "description": "A repeatable pass covering every key event before a campaign spends budget."
+      },
+      {
+        "title": "Measurement dashboard mockup",
+        "description": "An illustrative view of event health — clearly marked as demonstration data."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "A demonstration of a measurement setup for an e-commerce brand, showing how browser and server events are structured, matched, and validated.",
+          "All numbers, dashboards and event volumes in this project are simulated for illustration."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Advertising decisions rest on conversion data. If events are missing, late, or counted twice, the reporting used to steer budget becomes unreliable."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Small and growing e-commerce teams running Meta campaigns who need trustworthy purchase and lead signals."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Event mapping, Pixel and Conversion API configuration, deduplication rules, GA4 alignment, and validation testing."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "Meta Pixel, Facebook Conversion API, Events Manager Test Events, GA4, and server-side tag configuration."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "Every key event is emitted from both browser and server with a shared event_id, so the platform can deduplicate instead of guessing.",
+          "Event parameters were standardised (content ids, value, currency) before any campaign work, because reporting cannot be repaired after the fact.",
+          "A written test checklist became part of the delivery so anyone can re-verify the setup after a site update."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "An event dictionary, implementation configuration, deduplication rules, validation checklist, and an illustrative measurement view."
+        ]
+      },
+      {
+        "heading": "Verified results",
+        "body": [
+          "None. This is a technical demonstration with simulated data. No campaign performance, conversion lift, or revenue change is claimed."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Most tracking problems are mapping problems: naming events consistently prevents far more issues than any debugging tool solves."
+        ]
+      }
+    ],
+    "deliverable": "Event dictionary, Pixel + Conversion API configuration, deduplication rules, and an event validation checklist.",
+    "results": null,
+    "lessons": [
+      "Standardise event names and parameters before launching campaigns.",
+      "Always validate with Test Events after any checkout or theme change.",
+      "Better measurement supports better decisions — it does not guarantee advertising performance."
+    ],
+    "links": {}
+  },
+  {
+    "slug": "full-stack-business-dashboard",
+    "title": "Full-Stack Business Dashboard",
+    "kicker": "Concept Project",
+    "category": "Web Development",
+    "secondaryCategory": "Full-Stack Development",
+    "summary": "A modern dashboard concept for managing products, orders, customers, or business operations.",
+    "artwork": "business-dashboard",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "REST API",
+      "Tailwind CSS"
+    ],
+    "isDemo": true,
+    "featured": false,
+    "year": "2026",
+    "role": "Full-stack design and implementation — concept work.",
+    "audience": "Operations staff who check the same five numbers every morning and need them to load quickly.",
+    "problem": "Internal tools are often built feature-first, leaving common tasks buried. This concept puts daily metrics, tables and states on one predictable screen.",
+    "showcase": [
+      {
+        "title": "Dashboard interface",
+        "description": "Key metrics, trend chart, and status distribution in a single scan line."
+      },
+      {
+        "title": "Data visualization",
+        "description": "A two-series trend line and status bars with text labels, not colour-only meaning."
+      },
+      {
+        "title": "API integration",
+        "description": "Typed data contracts between the interface and the data layer."
+      },
+      {
+        "title": "Loading, error, and empty states",
+        "description": "Every list has a skeleton, an error recovery path, and an empty-state explanation."
+      },
+      {
+        "title": "Responsive navigation",
+        "description": "Sidebar on desktop, labelled bottom navigation on small screens."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "A full-stack operations dashboard concept covering metrics, tables, and the states that usually get skipped in demos."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Give a team one reliable surface for daily decisions instead of a spreadsheet, a chat thread, and three admin panels."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Internal operators and managers who are not technical but depend on accurate numbers."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Data modelling, API design, component implementation, state handling, and responsive behaviour."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "Next.js App Router, TypeScript, React Server Components for read paths, typed API contracts, and Tailwind CSS for layout."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "Read-heavy views render on the server so the first paint contains real content rather than a spinner.",
+          "Loading, error, and empty states are treated as first-class screens designed alongside the success state.",
+          "Charts always carry a text equivalent so the information is available without colour perception."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "Dashboard shell, metric views, table screens with pagination, and a documented set of loading, error, and empty states."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Designing the empty state early usually changes the data model for the better."
+        ]
+      }
+    ],
+    "deliverable": "Responsive dashboard application shell with metrics, tables, and complete state handling.",
+    "results": null,
+    "lessons": [
+      "Empty and error states deserve the same design attention as the happy path.",
+      "Typed contracts between UI and data prevent a whole class of runtime surprises."
+    ],
+    "links": {}
+  },
+  {
+    "slug": "conversion-focused-landing-page",
+    "title": "Conversion-Focused Landing Page",
+    "kicker": "Concept Project",
+    "category": "Marketing",
+    "secondaryCategory": "Landing Pages / Marketing",
+    "summary": "A high-quality landing page concept designed around a single offer, a clear call to action, mobile usability, and a coherent message hierarchy.",
+    "artwork": "landing-page",
+    "technologies": [
+      "Semantic HTML",
+      "Tailwind CSS",
+      "Form handling",
+      "Event tracking"
+    ],
+    "isDemo": true,
+    "featured": false,
+    "year": "2026",
+    "role": "Design, build, and measurement wiring — concept work.",
+    "audience": "Paid traffic visitors arriving with one question: is this for me, and what happens if I click?",
+    "problem": "Landing pages fail when the message, the offer, and the action are not aligned to a single path.",
+    "showcase": [
+      {
+        "title": "Hero section",
+        "description": "One promise, one supporting line, one primary action above the fold."
+      },
+      {
+        "title": "Benefits and features",
+        "description": "Three benefit blocks that answer objections in the order shoppers raise them."
+      },
+      {
+        "title": "Offer presentation",
+        "description": "Price, scope, and what is included stated plainly with no urgency tricks."
+      },
+      {
+        "title": "FAQs",
+        "description": "Real objections answered in-page so fewer visitors leave to search elsewhere."
+      },
+      {
+        "title": "Conversion path",
+        "description": "A single action repeated at the decision points, with a secondary contact option."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "A single-offer landing page structured around one message hierarchy and one repeated action."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Give paid traffic a page that answers the four buying questions in order, without competing navigation."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Mobile visitors arriving from a single ad set, comparing a specific service rather than browsing a brand."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Message hierarchy, page structure, front-end build, form integration, and conversion event tracking."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "Semantic HTML, Tailwind CSS, accessible form validation, and Meta/GA4 conversion events for the primary action."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "The navigation is intentionally minimal so there is one obvious path forward.",
+          "FAQ content is rendered in the page, not in a modal, so it stays indexable and keyboard-friendly.",
+          "No countdown timers or fabricated scarcity — the offer speaks for itself."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "A responsive landing page with hero, benefits, offer, FAQ, and a validated contact form wired to conversion events."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Removing two of the three original buttons changed the reading order of the entire page."
+        ]
+      }
+    ],
+    "deliverable": "Responsive single-offer landing page with validated form, tracking events, and page-level metadata.",
+    "results": null,
+    "lessons": [
+      "One page, one offer, one action — anything more needs a stronger reason.",
+      "Honesty in the offer section outperforms manufactured urgency for trust."
+    ],
+    "links": {}
+  },
+  {
+    "slug": "personal-brand-portfolio",
+    "title": "Personal Brand Portfolio",
+    "kicker": "Concept Project",
+    "category": "Web Development",
+    "secondaryCategory": "Web Development / Creative",
+    "summary": "This immersive portfolio itself — environmental storytelling, responsive design, accessibility, and modern motion design.",
+    "artwork": "portfolio-world",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion for React",
+      "WCAG 2.2 AA"
+    ],
+    "isDemo": true,
+    "featured": false,
+    "year": "2026",
+    "role": "Concept direction, design system, and full implementation.",
+    "audience": "Prospective clients and collaborators judging craft, taste, and technical execution in the first minute.",
+    "problem": "A portfolio must prove capability while staying fast, accessible, and easy to navigate — the interesting constraint is doing that with an immersive visual world.",
+    "showcase": [
+      {
+        "title": "Layered environment",
+        "description": "Parallax depth built from original SVG scenes rather than heavy video."
+      },
+      {
+        "title": "Responsive design",
+        "description": "Mobile-first layout with simplified cinematic effects on smaller devices."
+      },
+      {
+        "title": "Accessibility",
+        "description": "Semantic landmarks, focus management, reduced-motion support, and AA contrast."
+      },
+      {
+        "title": "Motion design",
+        "description": "One coherent animation language with restrained timing and easing."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Project overview",
+        "body": [
+          "The site you are reading: a cinematic personal portfolio that keeps professional credibility ahead of spectacle."
+        ]
+      },
+      {
+        "heading": "The problem or business objective",
+        "body": [
+          "Be memorable within seconds, then make services, proof, and contact routes effortless to reach."
+        ]
+      },
+      {
+        "heading": "Target audience",
+        "body": [
+          "Businesses evaluating a developer for a website, storefront, advertising, or tracking work."
+        ]
+      },
+      {
+        "heading": "My role and responsibilities",
+        "body": [
+          "Creative direction, design system, component architecture, animation, accessibility, performance, and SEO."
+        ]
+      },
+      {
+        "heading": "Tools and technologies used",
+        "body": [
+          "Next.js App Router, TypeScript, Tailwind CSS, Motion for React, Lucide icons, and original SVG artwork."
+        ]
+      },
+      {
+        "heading": "Design and implementation decisions",
+        "body": [
+          "Server Components by default; animation and pointer behaviour isolated to client components.",
+          "Original SVG scenes instead of stock imagery — zero image payload, crisp at any size, and fully on-brand.",
+          "Motion respects prefers-reduced-motion everywhere, with static artwork as the fallback."
+        ]
+      },
+      {
+        "heading": "Final deliverable",
+        "body": [
+          "A production portfolio with editorial design system, cinematic hero, work explorer, case studies, insights, and contact flow."
+        ]
+      },
+      {
+        "heading": "Lessons learned",
+        "body": [
+          "Immersion comes from layering and timing, not from the quantity of effects.",
+          "Keeping the particle budget strict and pausing off-screen loops made the difference between feeling alive and feeling heavy."
+        ]
+      }
+    ],
+    "deliverable": "Complete responsive portfolio site with design system, motion language, and documentation.",
+    "results": null,
+    "lessons": [
+      "Restraint is what separates cinematic from noisy.",
+      "Accessibility and ambition are not in conflict when motion is opt-out by system preference."
+    ],
+    "links": {}
+  }
+]

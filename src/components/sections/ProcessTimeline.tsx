@@ -61,7 +61,7 @@ export function ProcessTimeline() {
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
             {STEPS.map((step, index) => (
               <Reveal key={step.number} delay={index * 0.08}>
-                <li className="group relative h-full rounded-2xl border border-line bg-surface-raised/70 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-glow/45">
+                <li className="shine card-charge group relative h-full overflow-hidden rounded-2xl border border-line bg-surface-raised/70 p-5 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/45">
                   <span className="flex items-center gap-3">
                     <span className="font-mono text-[0.7rem] tracking-[0.24em] text-accent dark:text-bio">
                       {step.number}

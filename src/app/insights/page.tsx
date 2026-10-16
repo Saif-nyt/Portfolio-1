@@ -6,7 +6,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactCTA } from "@/components/sections/ContactCTA";
-import { ARTICLES, formatDate } from "@/data/articles";
+import { formatDate } from "@/data/articles";
+import { getArticles } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Insights — Practical Notes on Web, Commerce & Measurement",
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function InsightsPage() {
-  const sorted = [...ARTICLES].sort((a, b) =>
+export default async function InsightsPage() {
+  const articles = await getArticles();
+  const sorted = [...articles].sort((a, b) =>
     a.publishedAt < b.publishedAt ? 1 : -1,
   );
 
@@ -42,7 +44,7 @@ export default function InsightsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Insights" }]}
         meta={
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.78rem] text-muted">
-            <li>{ARTICLES.length} articles</li>
+            <li>{articles.length} articles</li>
             <li aria-hidden="true" className="text-line-strong">
               ·
             </li>
@@ -68,7 +70,7 @@ export default function InsightsPage() {
                 delay={Math.min(index * 0.06, 0.3)}
                 className="h-full"
               >
-                <li className="group flex h-full flex-col overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 transition-all duration-500 hover:-translate-y-1 hover:border-glow/40">
+                <li className="shine card-charge group relative flex h-full flex-col overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/40">
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
                     <div className="flex items-center justify-between gap-4 text-[0.7rem] uppercase tracking-[0.16em] text-muted">
                       <span>{article.category}</span>

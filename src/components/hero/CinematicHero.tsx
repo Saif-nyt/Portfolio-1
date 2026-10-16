@@ -3,7 +3,9 @@
 import { motion } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import dynamic from "next/dynamic";
+import { useRef, type PointerEvent } from "react";
 import { EnvironmentScene } from "@/components/hero/EnvironmentScene";
+import { Collectibles } from "@/components/hero/Collectibles";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { SITE } from "@/config/site";
@@ -18,6 +20,26 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function CinematicHero() {
   const reduced = usePrefersReducedMotion();
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const onPointerMove = (event: PointerEvent<HTMLElement>) => {
+    if (reduced || window.matchMedia("(pointer: coarse)").matches) return;
+    const node = contentRef.current;
+    if (!node) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width - 0.5;
+    const py = (event.clientY - rect.top) / rect.height - 0.5;
+    // Counter-parallax: the copy drifts slightly against the scene layers.
+    node.style.setProperty("--hpx", `${px * -10}px`);
+    node.style.setProperty("--hpy", `${py * -7}px`);
+  };
+
+  const onPointerLeave = () => {
+    const node = contentRef.current;
+    if (!node) return;
+    node.style.setProperty("--hpx", "0px");
+    node.style.setProperty("--hpy", "0px");
+  };
 
   const container = {
     hidden: {},
@@ -32,11 +54,19 @@ export function CinematicHero() {
       };
 
   return (
-    <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
+    <section
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden"
+      onPointerMove={onPointerMove}
+      onPointerLeave={onPointerLeave}
+    >
       <EnvironmentScene />
       <ParticleField className="opacity-90" />
 
-      <div className="container-page relative z-10 flex flex-1 flex-col justify-center pb-28 pt-36 sm:pt-40 lg:pb-32">
+      <div
+        ref={contentRef}
+        className="container-page relative z-10 flex flex-1 flex-col justify-center pb-28 pt-36 transition-transform duration-700 ease-out will-change-transform sm:pt-40 lg:pb-32"
+        style={{ transform: "translate3d(var(--hpx), var(--hpy), 0)" }}
+      >
         <motion.div
           variants={container}
           initial="hidden"
@@ -131,6 +161,9 @@ export function CinematicHero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-b from-transparent to-surface"
       />
+
+      {/* Interactive pickups — above the copy layer so they stay clickable */}
+      <Collectibles />
     </section>
   );
 }

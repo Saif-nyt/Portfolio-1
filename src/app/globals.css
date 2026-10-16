@@ -234,6 +234,71 @@
     -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
   }
+
+  /** Slow weightless float — compositor-only transform bob. */
+  .bob {
+    animation: bob var(--bob-duration, 5.6s) ease-in-out infinite;
+    animation-delay: var(--bob-delay, 0s);
+    will-change: transform;
+  }
+
+  /** Shine sweep across cards and buttons, like a power-up charging. */
+  .shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      rgba(143, 242, 236, 0.16) 46%,
+      rgba(143, 242, 236, 0.05) 54%,
+      transparent 68%
+    );
+    transform: translateX(-130%);
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .shine:hover::after,
+  .shine:focus-visible::after {
+    transform: translateX(130%);
+  }
+
+  /** Glowing energy ring that intensifies on hover/focus. */
+  .card-charge::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      120deg,
+      transparent 18%,
+      rgba(101, 232, 224, 0.65) 50%,
+      transparent 82%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 500ms ease;
+    pointer-events: none;
+  }
+  .card-charge:hover::before,
+  .card-charge:focus-within::before {
+    opacity: 1;
+  }
+
+  /** Score/counter bump. */
+  .pop {
+    animation: pop 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /** Expanding pickup ring. */
+  .ring-pop {
+    animation: ring-pop 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 @keyframes fade-in {
@@ -294,10 +359,50 @@
   }
 }
 
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ring-pop {
+  from {
+    transform: scale(0.55);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pulse-bio,
-  .pulse-glow {
+  .pulse-glow,
+  .bob,
+  .pop,
+  .ring-pop {
     animation: none !important;
+  }
+
+  .shine::after {
+    display: none;
   }
 
   .will-fade,

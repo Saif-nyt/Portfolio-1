@@ -47,6 +47,7 @@ export function MagneticButton({
       ref={ref}
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
+      whileTap={reduced ? undefined : { scale: 0.96 }}
       style={{
         ["--mag-x" as string]: "0px",
         ["--mag-y" as string]: "0px",

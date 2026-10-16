@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Original abstract artwork for Demo Project">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#0F3A31" />
+      <stop offset="55%" stopColor="#0A211C" />
+      <stop offset="100%" stopColor="#060F0C" />
+    </linearGradient>
+    <radialGradient id="moon">
+      <stop offset="0%" stopColor="#9FD8D2" stopOpacity="0.35" />
+      <stop offset="60%" stopColor="#5FBFB6" stopOpacity="0.12" />
+      <stop offset="100%" stopColor="#5FBFB6" stopOpacity="0" />
+    </radialGradient>
+    <radialGradient id="node-0">
+      <stop offset="0%" stopColor="#9FD8D2" stopOpacity="0.75" />
+      <stop offset="100%" stopColor="#9FD8D2" stopOpacity="0" />
+    </radialGradient>
+    <radialGradient id="node-1">
+      <stop offset="0%" stopColor="#5FBFB6" stopOpacity="0.7" />
+      <stop offset="100%" stopColor="#5FBFB6" stopOpacity="0" />
+    </radialGradient>
+    <radialGradient id="node-2">
+      <stop offset="0%" stopColor="#8FF2EC" stopOpacity="0.55" />
+      <stop offset="100%" stopColor="#8FF2EC" stopOpacity="0" />
+    </radialGradient>
+    <linearGradient id="ridge-far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#12463C" />
+      <stop offset="100%" stopColor="#0A2A22" />
+    </linearGradient>
+    <linearGradient id="ridge-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#0D3229" />
+      <stop offset="100%" stopColor="#071E18" />
+    </linearGradient>
+    <radialGradient id="ground" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" stopColor="#5FBFB6" stopOpacity="0.18" />
+      <stop offset="100%" stopColor="#5FBFB6" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#sky)" />
+  <circle cx="980" cy="120" r="260" fill="url(#moon)" />
+  <circle cx="180" cy="90" r="150" fill="url(#moon)" opacity="0.5" />
+
+  <path d="M0 900 L0 430 L133 448 L267 432 L400 413 L533 398 L667 403 L800 433 L933 445 L1067 435 L1200 448 L1200 900 Z" fill="url(#ridge-far)" opacity="0.95" />
+  <path d="M0 900 L0 520 L133 541 L267 527 L400 550 L533 509 L667 529 L800 527 L933 486 L1067 545 L1200 534 L1200 900 Z" fill="url(#ridge-mid)" opacity="0.95" />
+
+  
+    <g opacity="0.9">
+      <path d="M330 300 H870 L720 420 V560 L480 620 V420 Z" fill="#0E1F1A" stroke="#5FBFB6" strokeOpacity="0.4" />
+      <path d="M370 330 H830 L710 430 H490 Z" fill="#9FD8D2" opacity="0.14" />
+      <rect x="500" y="460" width="200" height="14" rx="7" fill="#5FBFB6" opacity="0.7" />
+      <rect x="520" y="492" width="160" height="12" rx="6" fill="#3C544C" />
+      <circle cx="600" cy="560" r="26" fill="#9FD8D2" opacity="0.5" />
+      <circle cx="600" cy="560" r="6" fill="#9FD8D2" />
+      <g fill="#3C544C">
+        <circle cx="400" cy="270" r="10" /><circle cx="600" cy="256" r="10" /><circle cx="800" cy="270" r="10" />
+      </g>
+    </g>
+
+  <circle cx="644" cy="460" r="11" fill="url(#node-0)" opacity="0.60" />
+    <circle cx="644" cy="460" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="465" cy="305" r="23" fill="url(#node-1)" opacity="0.63" />
+    <circle cx="465" cy="305" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="414" cy="204" r="14" fill="url(#node-2)" opacity="0.63" />
+    <circle cx="414" cy="204" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="925" cy="182" r="25" fill="url(#node-0)" opacity="0.66" />
+    <circle cx="925" cy="182" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="83" cy="220" r="9" fill="url(#node-1)" opacity="0.50" />
+    <circle cx="83" cy="220" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="184" cy="362" r="9" fill="url(#node-2)" opacity="0.49" />
+    <circle cx="184" cy="362" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="1071" cy="495" r="21" fill="url(#node-0)" opacity="0.49" />
+    <circle cx="1071" cy="495" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="1087" cy="342" r="9" fill="url(#node-1)" opacity="0.69" />
+    <circle cx="1087" cy="342" r="2.5" fill="#9FD8D2" opacity="0.9" />
+    <circle cx="368" cy="287" r="19" fill="url(#node-2)" opacity="0.42" />
+    <circle cx="368" cy="287" r="2.5" fill="#9FD8D2" opacity="0.9" />
+
+  <rect y="600" width="1200" height="150" fill="url(#ground)" />
+  <rect width="1200" height="750" fill="none" stroke="#1E3A33" strokeOpacity="0.7" />
+
+  <text x="48" y="700" fill="#7E938B" fontFamily="ui-sans-serif, system-ui, sans-serif" font-size="20" letterSpacing="6">DEMO PROJECT</text>
+  <text x="1152" y="700" text-anchor="end" fill="#4A625A" fontFamily="ui-sans-serif, system-ui, sans-serif" font-size="14" letterSpacing="4">ORIGINAL ARTWORK</text>
+</svg>

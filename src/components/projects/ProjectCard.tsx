@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, type PointerEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { ProjectArtwork } from "@/components/artwork/ProjectArtwork";
+import { ArtworkImage } from "@/components/projects/ArtworkImage";
 import type { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -40,7 +40,7 @@ export function ProjectCard({ project, wide = false, index }: ProjectCardProps) 
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
       style={{ ["--mx" as string]: "0px", ["--my" as string]: "0px" }}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 transition-all duration-500 hover:-translate-y-1 hover:border-glow/40 hover:shadow-[0_30px_60px_-40px_rgba(0,0,0,0.7)] ${
+      className={`shine card-charge group relative flex h-full flex-col overflow-hidden rounded-[1.375rem] border border-line bg-surface-2 transition-all duration-500 hover:-translate-y-1.5 hover:border-glow/40 hover:shadow-[0_30px_60px_-40px_rgba(0,0,0,0.7)] ${
         wide ? "md:col-span-2" : ""
       }`}
     >
@@ -55,7 +55,12 @@ export function ProjectCard({ project, wide = false, index }: ProjectCardProps) 
             transform: "translate(var(--mx), var(--my))",
           }}
         >
-          <ProjectArtwork name={project.artwork} className="h-full w-full [&>svg]:h-full [&>svg]:w-full" />
+          <ArtworkImage
+            slug={project.slug}
+            artwork={project.artwork}
+            className="h-full w-full object-cover"
+            fallbackClassName="h-full w-full [&>svg]:h-full [&>svg]:w-full"
+          />
         </div>
 
         <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/45 px-3 py-1 text-[0.66rem] font-medium uppercase tracking-[0.18em] text-[#DCE9E4] backdrop-blur-sm">
