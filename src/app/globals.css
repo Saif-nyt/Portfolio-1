@@ -212,17 +212,18 @@
     animation: fade-in 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .float-slow {
-    animation: float-slow 14s ease-in-out infinite;
-  }
-
   .pulse-bio {
     animation: pulse-bio 4.5s ease-in-out infinite;
   }
 
-  .shift-gradient {
-    background-size: 220% 220%;
-    animation: shift-gradient 18s ease-in-out infinite;
+  /**
+   * Opacity-only pulse for grouped SVG artwork. Animating `transform` on SVG
+   * children cannot be composited, so every frame forces a main-thread style
+   * recalculation — with many nodes that shows up as scroll jank. A single
+   * animated group keeps the breathing glow at a fraction of the cost.
+   */
+  .pulse-glow {
+    animation: pulse-glow 4.5s ease-in-out infinite;
   }
 
   .widget-enter {
@@ -246,16 +247,6 @@
   }
 }
 
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -14px, 0);
-  }
-}
-
 @keyframes pulse-bio {
   0%,
   100% {
@@ -265,6 +256,16 @@
   50% {
     opacity: 1;
     transform: scale(1.06);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
   }
 }
 
@@ -293,20 +294,9 @@
   }
 }
 
-@keyframes shift-gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .float-slow,
   .pulse-bio,
-  .shift-gradient {
+  .pulse-glow {
     animation: none !important;
   }
 

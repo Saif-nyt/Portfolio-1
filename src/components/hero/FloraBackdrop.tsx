@@ -39,26 +39,46 @@ export function FloraBackdrop({ className = "" }: FloraBackdropProps) {
         <path d="M1120 260 C 1138 208, 1110 166, 1152 122" />
       </g>
 
-      <g fill="url(#flora-node)">
-        <circle cx="70" cy="96" r="14" className="pulse-bio" />
-        <circle cx="150" cy="130" r="11" className="pulse-bio" style={{ animationDelay: "0.8s" }} />
-        <circle cx="250" cy="146" r="13" className="pulse-bio" style={{ animationDelay: "1.6s" }} />
-        <circle cx="360" cy="108" r="16" className="pulse-bio" style={{ animationDelay: "0.4s" }} />
-        <circle cx="495" cy="150" r="10" className="pulse-bio" style={{ animationDelay: "2.2s" }} />
-        <circle cx="640" cy="124" r="15" className="pulse-bio" style={{ animationDelay: "1.1s" }} />
-        <circle cx="775" cy="156" r="11" className="pulse-bio" style={{ animationDelay: "2.8s" }} />
-        <circle cx="905" cy="116" r="14" className="pulse-bio" style={{ animationDelay: "1.9s" }} />
-        <circle cx="1030" cy="152" r="12" className="pulse-bio" style={{ animationDelay: "0.6s" }} />
-        <circle cx="1152" cy="122" r="15" className="pulse-bio" style={{ animationDelay: "2.4s" }} />
+      {/* One animation per group instead of per node: SVG children cannot be
+          composited, so a pulse on every circle forces a main-thread style
+          recalculation on each frame and makes scrolling stutter. */}
+      <g
+        fill="url(#flora-node)"
+        className="pulse-glow"
+        opacity="0.85"
+      >
+        <circle cx="70" cy="96" r="14" />
+        <circle cx="250" cy="146" r="13" />
+        <circle cx="495" cy="150" r="10" />
+        <circle cx="775" cy="156" r="11" />
+        <circle cx="1030" cy="152" r="12" />
       </g>
 
-      <g fill="var(--glow)" opacity="0.55">
-        <circle cx="180" cy="70" r="2" className="pulse-bio" style={{ animationDelay: "1.3s" }} />
-        <circle cx="420" cy="92" r="1.6" className="pulse-bio" style={{ animationDelay: "2.1s" }} />
-        <circle cx="560" cy="60" r="2.2" className="pulse-bio" style={{ animationDelay: "0.9s" }} />
-        <circle cx="690" cy="96" r="1.7" className="pulse-bio" style={{ animationDelay: "2.6s" }} />
-        <circle cx="940" cy="64" r="2" className="pulse-bio" style={{ animationDelay: "1.7s" }} />
-        <circle cx="1080" cy="88" r="1.8" className="pulse-bio" style={{ animationDelay: "0.3s" }} />
+      <g
+        fill="url(#flora-node)"
+        className="pulse-glow"
+        opacity="0.85"
+        style={{ animationDelay: "2.1s" }}
+      >
+        <circle cx="150" cy="130" r="11" />
+        <circle cx="360" cy="108" r="16" />
+        <circle cx="640" cy="124" r="15" />
+        <circle cx="905" cy="116" r="14" />
+        <circle cx="1152" cy="122" r="15" />
+      </g>
+
+      <g
+        fill="var(--glow)"
+        className="pulse-glow"
+        opacity="0.5"
+        style={{ animationDelay: "1s" }}
+      >
+        <circle cx="180" cy="70" r="2" />
+        <circle cx="420" cy="92" r="1.6" />
+        <circle cx="560" cy="60" r="2.2" />
+        <circle cx="690" cy="96" r="1.7" />
+        <circle cx="940" cy="64" r="2" />
+        <circle cx="1080" cy="88" r="1.8" />
       </g>
     </svg>
   );

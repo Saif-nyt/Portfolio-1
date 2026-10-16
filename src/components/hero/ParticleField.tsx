@@ -64,18 +64,40 @@ export function ParticleField({ className = "" }: { className?: string }) {
       if (reduced) draw();
     };
 
+    // One offscreen radial-gradient sprite, rendered once and blitted per
+    // particle — see draw() below.
+    const spriteSize = 64;
+    const sprite = document.createElement("canvas");
+    sprite.width = spriteSize;
+    sprite.height = spriteSize;
+    const spriteContext = sprite.getContext("2d");
+    if (!spriteContext) return;
+    const glow = spriteContext.createRadialGradient(
+      spriteSize / 2,
+      spriteSize / 2,
+      0,
+      spriteSize / 2,
+      spriteSize / 2,
+      spriteSize / 2,
+    );
+    glow.addColorStop(0, "rgba(143, 242, 236, 0.95)");
+    glow.addColorStop(0.35, "rgba(101, 232, 224, 0.55)");
+    glow.addColorStop(1, "rgba(101, 232, 224, 0)");
+    spriteContext.fillStyle = glow;
+    spriteContext.fillRect(0, 0, spriteSize, spriteSize);
+
     const draw = () => {
       context.clearRect(0, 0, width, height);
+      // One pre-rendered glow sprite per frame instead of a per-particle
+      // shadowBlur: canvas shadows force a blur pass on every fill, which is
+      // the single most expensive thing this loop can do while scrolling.
       for (const p of particles) {
         const flicker = 0.7 + Math.sin(p.phase) * 0.3;
-        context.beginPath();
-        context.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        context.fillStyle = `rgba(101, 232, 224, ${p.alpha * flicker})`;
-        context.shadowColor = "rgba(101, 232, 224, 0.85)";
-        context.shadowBlur = 8;
-        context.fill();
+        const size = p.r * 9;
+        context.globalAlpha = p.alpha * flicker;
+        context.drawImage(sprite, p.x - size / 2, p.y - size / 2, size, size);
       }
-      context.shadowBlur = 0;
+      context.globalAlpha = 1;
     };
 
     const tick = () => {

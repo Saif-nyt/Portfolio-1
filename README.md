@@ -6,6 +6,30 @@ system, full light/dark themes, and honest, conversion-focused content.
 
 Built with the Next.js App Router, TypeScript, Tailwind CSS v4 and Motion.
 
+## About
+
+**T. M. Saiful Islam** — Full-Stack Web Developer & Digital Growth Specialist.
+1.5 years of professional & freelance experience and 100+ WordPress websites
+completed, working across web development, e-commerce, advertising and
+conversion tracking. The site doubles as the live CV:
+[download the PDF](public/cv/t-m-saiful-islam-cv.pdf) ·
+[saifulislamnyt@gmail.com](mailto:saifulislamnyt@gmail.com) ·
+[+880 1576-483920](tel:+8801576483920)
+
+## Features
+
+- Cinematic "Pandora" hero — canvas particle field, parallax flora, luminous
+  trails and magnetic CTAs, all reduced-motion aware and paused when off-screen
+- Full light/dark themes with a no-flash inline script, persisted in
+  `localStorage`
+- Six case studies (concept/demo work labelled as such) with filters and
+  related-project links
+- Seven original articles with sticky table of contents and share links
+- Contact form validated on the server (honeypot + per-instance rate limit)
+  that never fakes success, plus a floating WhatsApp widget
+- SEO and accessibility: per-route metadata, social card, sitemap, robots,
+  skip link, labelled form errors, real HTTP 404s for unknown slugs
+
 ## Stack
 
 | Layer     | Choice                                                     |
@@ -138,4 +162,3 @@ node scripts/generate-cv.mjs
   streamed soft 404): `src/proxy.ts` rejects them before render, because
   `notFound()` during streaming can only flush `200 + noindex`. Known slugs are
   prerendered `200`.
-# Portfolio-1
