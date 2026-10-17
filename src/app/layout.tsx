@@ -131,6 +131,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <span
+          data-nav-sentinel
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-0 h-[25px] w-px"
+        />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}

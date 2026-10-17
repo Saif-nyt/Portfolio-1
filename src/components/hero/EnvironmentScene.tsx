@@ -1,11 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { useRef, type PointerEvent } from "react";
 
 interface LayerProps {
   children: React.ReactNode;
+  /** Scroll progress shared by every layer — one listener, not one per layer. */
+  progress: MotionValue<number>;
   depth: number;
   className?: string;
 }
@@ -15,15 +17,11 @@ interface LayerProps {
  * speeds on scroll (and, on fine pointers, follow the cursor slightly) to
  * create volumetric depth without hijacking the page scroll.
  */
-function Layer({ children, depth, className = "" }: LayerProps) {
+function Layer({ children, progress, depth, className = "" }: LayerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, depth]);
+  const y = useTransform(progress, [0, 1], [0, depth]);
   const style = reduced ? undefined : { y };
 
   return (
@@ -41,6 +39,16 @@ function Layer({ children, depth, className = "" }: LayerProps) {
 export function EnvironmentScene() {
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
+
+  // One scroll subscription for the whole scene: useScroll() attaches its own
+  // window listener per call, and every listener reads the scroll position on
+  // every scroll event of a gesture — the first read of each event flushes
+  // pending style/layout work on the main thread, so three listeners cost
+  // three times as much as one while scrolling.
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     if (reduced || window.matchMedia("(pointer: coarse)").matches) return;
@@ -86,7 +94,7 @@ export function EnvironmentScene() {
         }}
       />
 
-      <Layer depth={-16}>
+      <Layer progress={scrollYProgress} depth={-16}>
         <svg
           viewBox="0 0 1440 900"
           preserveAspectRatio="xMidYMid slice"
@@ -118,7 +126,7 @@ export function EnvironmentScene() {
       </Layer>
 
       {/* Floating islands */}
-      <Layer depth={-34}>
+      <Layer progress={scrollYProgress} depth={-34}>
         <svg
           viewBox="0 0 1440 900"
           preserveAspectRatio="xMidYMid slice"
@@ -193,7 +201,7 @@ export function EnvironmentScene() {
       <div className="pointer-events-none absolute inset-x-0 top-[38%] h-[46%] bg-[linear-gradient(to_bottom,transparent,rgba(101,232,224,0.07)_45%,transparent)] blur-2xl" />
 
       {/* Foreground cliffs + bioluminescent flora */}
-      <Layer depth={26}>
+      <Layer progress={scrollYProgress} depth={26}>
         <svg
           viewBox="0 0 1440 900"
           preserveAspectRatio="xMidYMax slice"

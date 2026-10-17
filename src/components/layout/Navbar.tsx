@@ -14,11 +14,20 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
+  // Reading window.scrollY inside a scroll handler forces the main thread to
+  // flush pending style/layout work on every event of a gesture (~2ms each),
+  // which is what makes scrolling feel laggy. A sentinel at the top of the
+  // document lets the browser tell us when the threshold is crossed instead.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sentinel = document.querySelector<HTMLElement>("[data-nav-sentinel]");
+    if (!sentinel || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
   }, []);
 
   // Close the menu when the route changes (including history navigation).
